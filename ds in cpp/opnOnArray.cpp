@@ -1,56 +1,61 @@
+// C++ implementation to count
+// subarrays having sum
+// as a perfect cube
+
+#include <bits/stdc++.h>
 #include <iostream>
-#include <climits>
-#include <algorithm>
-#include <vector>
 using namespace std;
+#define int long long
 
-// int factorial(int n)
-// {
-//     if (n == 1)
-//         return 1;
-
-//     int k;
-//     k = n * factorial(n - 1);
-//     return k;
-// }
-
-// int main()
-// {
-//     int n;
-//     cout<<"Input number: ";
-//     cin>>n;
-//     cout << "Factorial is: "<<factorial(n);
-// }
-
-int maxSum(int arr[], int n, int k)
+// Function to check for
+// perfect cube or not
+bool isCubicSquare(int x)
 {
-    int i, j = 0;
-    int sum = 0;
-    vector<int> v;
+	int curoot = round(pow(x, 1.0 / 3.0));
 
-    while (j < n)
-    {
-        if (j - i + 1 < k)
-        {   sum = sum + arr[j];
-            j++;
-        }
-        else if (j - i + 1 == k)
-        {
-            sum = sum + arr[j];
-            v.push_back(sum);
-            sum = sum - arr[i];
-            i++;
-            j++;
-        }
-    }
-    return *max_element(v.begin(), v.end());
+	if (curoot * curoot * curoot == x)
+		return true;
+	return false;
 }
 
+// Function to count the subarray
+// whose sum is a perfect cube
+int count(int arr[], int n)
+{
+	int pre[n + 1];
+
+	pre[0] = 0;
+
+	// Loop to find the prefix sum
+	// of the array
+	for (int i = 1; i <= n; i++) {
+		pre[i] = pre[i - 1] + arr[i - 1];
+	}
+
+	int ans = 0;
+
+	// Loop to take every
+	// possible subarrays
+	for (int i = 0; i <= n; i++) {
+		for (int j = i + 1; j <= n; j++) {
+			
+			// check for every
+			// possible subarrays
+			if (isCubicSquare((double)(pre[j] - pre[i]))) {
+				ans++;
+			}
+		}
+	}
+
+	return ans;
+}
+
+// Driver Code
 int main()
 {
-    int arr[] = {2, 1, 0, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    cout <<maxSum(arr, n, 2) << endl;
-    cout<<"Hello";
-    return 0;
+	int arr[6] = { 6, 2 };
+
+	cout << count(arr, 2);
+
+	return 0;
 }

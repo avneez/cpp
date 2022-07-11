@@ -15,7 +15,7 @@ class queue{
     }
 
     void push(int x){
-        if(back==n-1){
+        if(back==n-1){      
             cout<<"Queue Overflow";
         }
         back++;
