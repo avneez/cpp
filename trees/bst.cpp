@@ -51,13 +51,13 @@ class Tree{
         queue<Tree*> q;
         q.push(root);
         while(!q.empty()){
-            auto temp=q.front();
+            auto node=q.front();
             q.pop();
-            cout<<temp->val<<" ";
-            if(temp->left!=NULL)
-                q.push(temp->left);
-            if(temp->right!=NULL)
-                    q.push(temp->right);
+            cout<<node->val<<" ";
+            if(node->left!=NULL)
+                q.push(node->left);
+            if(node->right!=NULL)
+                    q.push(node->right);
         }
     }
 
@@ -67,14 +67,14 @@ class Tree{
         while(!q.empty()){
             int n=q.size();  //store
             for(int i=1; i<=n; i++){
-                auto temp=q.front();
+                auto node=q.front();
                 q.pop();
                 if(i==1)  //if it is 1st node of the level
-                    cout<<temp->val<<" ";
-                if(temp->left)
-                    q.push(temp->left);
-                if(temp->right)
-                        q.push(temp->right);
+                    cout<<node->val<<" ";
+                if(node->left)
+                    q.push(node->left);
+                if(node->right)
+                        q.push(node->right);
             }
         }
     }
@@ -85,14 +85,14 @@ class Tree{
             while(!q.empty()){
                 int n=q.size();
                 for(int i=1; i<=n; i++){
-                    auto temp=q.front();
+                    auto node=q.front();
                     q.pop();
                     if(i==n) //if it is last node of the level
-                        cout<<temp->val<<" ";
-                    if(temp->left)
-                        q.push(temp->left);
-                    if(temp->right)
-                        q.push(temp->right);
+                        cout<<node->val<<" ";
+                    if(node->left)
+                        q.push(node->left);
+                    if(node->right)
+                        q.push(node->right);
                 }
             }
         }
@@ -102,10 +102,10 @@ class Tree{
             queue<pair<Tree*, int>> q;
             q.push({root,0});
             while(!q.empty()){
-                auto temp=q.front();
+                auto nodehd=q.front();
                 q.pop();
-                int hd=temp.second;
-                auto node=temp.first;
+                int hd=nodehd.second;
+                auto node=nodehd.first;
                 if(mp.count(hd)==0)
                     mp[hd] = node->val;
                 if(node->left){
@@ -124,10 +124,10 @@ class Tree{
             queue<pair<Tree*, int>> q;
             q.push({root,0});
             while(!q.empty()){
-                auto temp=q.front();
+                auto nodehd=q.front();
                 q.pop();
-                int hd=temp.second;
-                auto node=temp.first;
+                int hd=nodehd.second;
+                auto node=nodehd.first;
                 mp[hd] = node->val;
                 if(node->left){
                     q.push({node->left,hd-1});
@@ -181,7 +181,7 @@ int main(){
     // cout<<endl;
     // root->bottomView(root);
     // cout<<endl;
-    cout<<root->height(root);
-    cout<<endl;
+    // cout<<root->height(root);
+    // cout<<endl;
 
 }
