@@ -3,7 +3,6 @@
 // as a perfect cube
 
 #include <bits/stdc++.h>
-#include <iostream>
 using namespace std;
 #define int long long
 
@@ -38,7 +37,7 @@ int count(int arr[], int n)
 	// possible subarrays
 	for (int i = 0; i <= n; i++) {
 		for (int j = i + 1; j <= n; j++) {
-			
+
 			// check for every
 			// possible subarrays
 			if (isCubicSquare((double)(pre[j] - pre[i]))) {
@@ -51,11 +50,10 @@ int count(int arr[], int n)
 }
 
 // Driver Code
-int main()
-{
+int main(){
 	int arr[6] = { 6, 2 };
 
-	cout << count(arr, 2);
+	int ans=count(arr, 2);
 
-	return 0;
+	return ans;
 }
