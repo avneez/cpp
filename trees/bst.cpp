@@ -292,9 +292,9 @@ int main()
 
     // BFS
     root->levelOrder(root);
-    cout << endl;
+    cout<<endl<<endl;
     root->levelOrder2(root);
-    cout << endl;
+    // cout << endl;
     // root->leftView(root);
     // cout<<endl;
     // root->rightView(root);
