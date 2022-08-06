@@ -12,6 +12,7 @@ int main(){
     int a,b,c=0;
     int maxi = *max_element(arr,arr+n);
     int mini = *min_element(arr,arr+n);
+
     for(int i=0;i<n;i++){
         if(arr[i]==maxi){
             a=i;
@@ -19,11 +20,11 @@ int main(){
         }
     }
 
-    while(a!=0){
-        swap(arr[a],arr[a-1]);
-        a--;
-        c++;
-    }
+    // while(a!=0){
+    //     swap(arr[a],arr[a-1]);
+    //     a--;
+    //     c++;
+    // }
 
     for(int i=0;i<n;i++){
         if(arr[i]==mini){
@@ -31,11 +32,14 @@ int main(){
         }
     }
 
-    while(b!=(n-1)){
-        swap(arr[b],arr[b+1]);
-        b++;
-        c++;
-    }
-    cout<<c;
+    // while(b!=(n-1)){
+    //     swap(arr[b],arr[b+1]);
+    //     b++;
+    //     c++;
+    // }
+    // cout<<c<<endl;
+    if(b<a)
+        cout<<((n-1-b)+a)-1;
+    else cout<<(n-1-b)+a;
 return 0;
 }

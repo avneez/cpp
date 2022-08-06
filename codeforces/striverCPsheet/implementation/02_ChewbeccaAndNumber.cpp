@@ -15,7 +15,7 @@ int main() {
         ll rem = n%10;
         n/=10;
         mini=min(rem,9-rem);
-        v.pb(mini);
+        v.pb(mini);3
     }
 
     if (n==9)

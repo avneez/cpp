@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\codeforces"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.cpp": "cpp",
+			"*.java": "java",
+			"iostream": "cpp"
+		}
+	}
+}
