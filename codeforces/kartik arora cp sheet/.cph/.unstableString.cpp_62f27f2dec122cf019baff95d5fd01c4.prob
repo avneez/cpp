@@ -1,0 +1,1 @@
+{"name":"Local: unstableString","url":"d:\\Avneez prgm\\cpp\\codeforces\\kartik arora cp sheet\\unstableString.cpp","tests":[{"id":1660806684347,"input":"3\n0?10\n???\n?10??1100","output":"8\n6\n25"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Avneez prgm\\cpp\\codeforces\\kartik arora cp sheet\\unstableString.cpp","group":"local","local":true}

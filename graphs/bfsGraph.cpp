@@ -21,15 +21,15 @@
 // // Time Complexity: O(V + E)
 // // Space Complexity: O(V)
 
-#include<bits/stdc++.h> 
-using namespace std; 
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
   	vector<int> bfsOfGraph(int V, vector<int> adj[]){
 	    vector<bool> visited(V, false);
 	    int s = 0;
-	    visited[s] = true; 
+	    visited[s] = true;
 	    vector<int> res;
 	    queue<int> q;
 	    q.push(s);
@@ -37,8 +37,8 @@ public:
 	        int u = q.front();
 	        res.push_back(u);
 	        q.pop();
-	        for(int v : adj[t]){
-	            if(!visited[v]){ 
+	        for(int v : adj[u]){
+	            if(!visited[v]){
 	                visited[v] = true;
 	                q.push(v);
 	            }
@@ -60,28 +60,28 @@ public:
 // Space Complexity: O(V)
 
 
-void BFS(vector<int> adj[], int s, bool visited[]) { 	
+void BFS(vector<int> adj[], int s, bool visited[]) {
     queue<int>  q;
-	visited[s] = true; 
-	q.push(s); 
-	while(q.empty()==false) { 
-		int u = q.front(); 
+	visited[s] = true;
+	q.push(s);
+	while(q.empty()==false) {
+		int u = q.front();
 		q.pop();
-		cout << u << " "; 
-		 
+		cout << u << " ";
+
 		for(int v:adj[u])
 		    if(visited[v]==false){
 		        visited[v]=true;
 		        q.push(v);
 		    }
-	} 
+	}
 }
 
 void BFSDin(vector<int> adj[], int V){
-    bool visited[V]; 
-	for(int i = 0; i<V; i++) 
+    bool visited[V];
+	for(int i = 0; i<V; i++)
 		visited[i] = false;
-		
+
     for(int i=0; i<V; i++){
         if(visited[i]==false)
             BFS(adj,i,visited);
@@ -93,24 +93,24 @@ void addEdge(vector<int> adj[], int u, int v){
     adj[v].push_back(u);
 }
 
-int main() { 
+int main() {
 	int V=7;
 	vector<int> adj[V];
-	addEdge(adj,0,1); 
-	addEdge(adj,0,2); 
-	addEdge(adj,2,3); 
-	addEdge(adj,1,3); 
+	addEdge(adj,0,1);
+	addEdge(adj,0,2);
+	addEdge(adj,2,3);
+	addEdge(adj,1,3);
 	addEdge(adj,4,5);
 	addEdge(adj,5,6);
 	addEdge(adj,4,6);
 
-	cout << "Following is Breadth First Traversal: "<< endl; 
-	BFSDin(adj,V); 
+	cout << "Following is Breadth First Traversal: "<< endl;
+	BFSDin(adj,V);
 
-	return 0; 
-} 
+	return 0;
+}
 
-// Output: Following is Breadth First Traversal: 0 1 2 3 4 5 6 
+// Output: Following is Breadth First Traversal: 0 1 2 3 4 5 6
 // BFS-III: Number of Islands in a graph (or number of connected components in a graph).
 
 // I/P:              0            4
@@ -123,34 +123,34 @@ int main() {
 // Time Complexity: O(V + E)
 // Space Complexity: O(V)
 
-void BFS(vector<int> adj[], int s, bool visited[]) { 	
-    queue<int>  q;
-    visited[s] = true; 
-    q.push(s); 
-    while(q.empty()==false) { 
-	    int u = q.front(); 
-	    q.pop();  
-		 
-	    for(int v:adj[u])
-		 if(visited[v]==false){
-		     visited[v]=true;
-		     q.push(v);
-		 }
-    } 
-}
+// void BFS(vector<int> adj[], int s, bool visited[]) {
+//     queue<int>  q;
+//     visited[s] = true;
+//     q.push(s);
+//     while(q.empty()==false) {
+// 	    int u = q.front();
+// 	    q.pop();
 
-int BFSDin(vector<int> adj[], int V){
-    bool visited[V]; int count=0;
-	for(int i = 0;i<V; i++) 
-		visited[i] = false;
-		
-    for(int i=0;i<V;i++){
-        if(visited[i]==false)
-            {BFS(adj,i,visited);count++;}
-    }
+// 	    for(int v:adj[u])
+// 		 if(visited[v]==false){
+// 		     visited[v]=true;
+// 		     q.push(v);
+// 		 }
+//     }
+// }
 
-    return count;
-}
+// int BFSDin(vector<int> adj[], int V){
+//     bool visited[V]; int count=0;
+// 	for(int i = 0;i<V; i++)
+// 		visited[i] = false;
+
+//     for(int i=0;i<V;i++){
+//         if(visited[i]==false)
+//             {BFS(adj,i,visited);count++;}
+//     }
+
+//     return count;
+// }
 
 
 // Application of BFS:

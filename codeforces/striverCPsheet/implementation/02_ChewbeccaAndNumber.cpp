@@ -5,6 +5,7 @@ using namespace std;
 #define pbb pop_back
 typedef long long ll;
 #define pii pair<int,int>
+#define vpii vector<pair<int,int>>
 #define all(x) (x).begin(),(x).end()
 
 int main() {
@@ -15,7 +16,7 @@ int main() {
         ll rem = n%10;
         n/=10;
         mini=min(rem,9-rem);
-        v.pb(mini);3
+        v.pb(mini);
     }
 
     if (n==9)

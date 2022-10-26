@@ -16,11 +16,11 @@ int main()
 
     inFile.open(fileName.c_str());
 
-    while(inFile >> word)
-    {
+    while(inFile >> word){
+        cout<<word<<" ";
         count++;
     }
-
+    cout<<endl;
     cout << "Number of words in file is: " << count;
     inFile.close();
 

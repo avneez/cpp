@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 class Solution {
 public:
     void dfs(vector<vector<int>>& image, int i, int j, int color, int initialColor){
@@ -28,6 +27,15 @@ public:
 };
 
 int main(){
-
+    vector<vector<int>> image={{1,1,1},{1,1,0},{1,0,0}};
+    Solution s;
+    int sr=1, sc=1;
+    int color=2;
+    vector<vector<int>>ans = s.floodFill(image,sr,sc,color);
+    for(int i=0; i<image.size(); i++){
+        for(int j=0; j<image[0].size(); j++)
+        cout<<ans[i][j]<<" ";
+        cout<<endl;
+    }
 return 0;
 }

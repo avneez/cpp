@@ -47,22 +47,20 @@ bool isPrime(int n)
 }
 
 //Prime Product upto n
-long PrimeProds(int n) {
-   bool prime[n + 1];
-   for(int i = 0; i<=n; i++){
-      prime[i] = true;
-   }
-   for (int i = 2; i * i <= n; i++) {
+void PrimeProds(int n) {
+   vector<bool> prime(n+1, true);     //using sieve of eratosthenes
+
+   long product = 1;
+   for (int i = 2; i<=n; i++) {
       if (prime[i] == true) {
-         for (int j = i * 2; j <= n; j += i)
+         cout<<i<<" ";
+         product *=i;
+         for (int j = i * i; j <= n; j += i)
             prime[j] = false;
       }
    }
-   long product = 1;
-   for (int i = 2; i <= n; i++)
-      if (prime[i])
-      product *= i;
-   return product;
+   cout<<endl;
+   cout<<product;
 }
 
 int main(){
@@ -81,6 +79,6 @@ int main(){
 
      // isPrime(n) ? cout<<"Prime Number" : cout<<"Not Prime";
 
-     cout<<PrimeProds(n);
+     PrimeProds(n);
 return 0;
 }

@@ -16,8 +16,8 @@
 // Time Complexity: O(V + E)
 // Space Complexity: O(V)
 
-#include<bits/stdc++.h> 
-using namespace std; 
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution{
 public:
@@ -30,11 +30,11 @@ public:
 	            DFSUtil(u, adj, visited, res);
 	    }
 	}
-	
+
 	vector<int> dfsOfGraph(int V, vector<int> adj[]){
 	    bool visited[V];
 	    memset(visited, false, sizeof(visited));
-	
+
 	    vector <int> res;
 	    for (int i = 0; i < V; i++)
 	        if (!visited[i]){
@@ -56,10 +56,10 @@ public:
 // Time Complexity: O(V + E)
 // Space Complexity: O(V)
 
-void DFSRec(vector<int> adj[], int s, bool visited[]) { 	
+void DFSRec(vector<int> adj[], int s, bool visited[]) {
     visited[s]=true;
     cout<< s <<" ";
-    
+
     for(int u:adj[s]){
         if(visited[u]==false)
             DFSRec(adj,u,visited);
@@ -67,10 +67,10 @@ void DFSRec(vector<int> adj[], int s, bool visited[]) {
 }
 
 void DFS(vector<int> adj[], int V){
-    bool visited[V]; 
-	for(int i = 0;i<V; i++) 
+    bool visited[V];
+	for(int i = 0;i<V; i++)
 		visited[i] = false;
-		
+
     for(int i=0;i<V;i++){
         if(visited[i]==false)
             DFSRec(adj,i,visited);
@@ -82,24 +82,8 @@ void addEdge(vector<int> adj[], int u, int v){
     adj[v].push_back(u);
 }
 
-int main() { 
-	int V=7;
-	vector<int> adj[V];
-	addEdge(adj,0,1); 
-	addEdge(adj,0,2); 
-	addEdge(adj,2,3); 
-	addEdge(adj,1,3); 
-	addEdge(adj,4,5);
-	addEdge(adj,5,6);
-	addEdge(adj,4,6);
 
-	cout << "Following is Depth First Traversal for disconnected graphs: "<< endl; 
-	DFS(adj,V); 
-
-	return 0; 
-} 
-
-// Output: Following is Depth First Traversal for disconnected graphs: 0 1 6 2 3 4 5 
+// Output: Following is Depth First Traversal for disconnected graphs: 0 1 6 2 3 4 5
 // DFS-III: Number of Islands in a graph (or number of connected components in a graph).
 
 // I/P:             0              4
@@ -112,7 +96,7 @@ int main() {
 // Time Complexity: O(V + E)
 // Space Complexity: O(V)
 
-void DFSRec(vector<int> adj[], int s, bool visited[]) { 	
+void DFSRec(vector<int> adj[], int s, bool visited[]) {
     visited[s]=true;
     for(int u:adj[s]){
         if(visited[u]==false)
@@ -120,17 +104,35 @@ void DFSRec(vector<int> adj[], int s, bool visited[]) {
     }
 }
 
-int DFS(vector<int> adj[], int V){
+int DFS2(vector<int> adj[], int V){
     int count=0;
-    bool visited[V]; 
-	for(int i = 0;i<V; i++) 
+    bool visited[V];
+	for(int i = 0;i<V; i++)
 		visited[i] = false;
-		
+
     for(int i=0;i<V;i++){
         if(visited[i]==false)
             {DFSRec(adj,i,visited);count++;}
     }
     return count;
+}
+
+
+int main() {
+	int V=7;
+	vector<int> adj[V];
+	addEdge(adj,0,1);
+	addEdge(adj,0,2);
+	addEdge(adj,2,3);
+	addEdge(adj,1,3);
+	addEdge(adj,4,5);
+	addEdge(adj,5,6);
+	addEdge(adj,4,6);
+
+	cout << "Following is Depth First Traversal for disconnected graphs: "<< endl;
+	DFS(adj,V);
+
+	return 0;
 }
 
 
