@@ -128,7 +128,7 @@ int main(){
     // head = delHead(head);
     // head = delTail(head);
     RPrint(head); cout<<endl;
-    
+
     // head = insPos(head,5,8);
     // cout<<search(head,5)<<endl;
     // cout<<Rsearch(head,5)<<endl;
