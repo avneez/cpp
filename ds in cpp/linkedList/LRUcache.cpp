@@ -145,8 +145,7 @@ void LRUCache2::refer(int x)
 void LRUCache2::display()
 {
 	// Iterate in the deque and print all the elements in it
-	for (auto it = dq.begin(); it != dq.end();
-		it++)
+	for (auto it = dq.begin(); it != dq.end(); it++)
 		cout << (*it) << " ";
 	cout << endl;
 }
